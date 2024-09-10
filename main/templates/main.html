@@ -1,15 +1,78 @@
-<h1>Toko Jam Bobert</h1>
-
-<h5>NPM: </h5>
-<p>2306214990</p> <!-- Ubah sesuai dengan npm kamu -->
-<h5>Name: </h5>
-<p>Henry The KING</p> <!-- Ubah sesuai dengan nama kamu -->
-<h5>Class: </h5>
-<p>PBP F</p>
-<br><br>
-<h5>Name: </h5>
-<p>{{ name }}<p>
-<h5>Price: </h5>
-<p>{{ price }}<p>
-<h5>description: </h5>
-<p>{{ description }}<p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: linear-gradient( rgb(203, 241, 228), rgb(82, 141, 184));
+            font-family: Helvetica;
+            text-align: center;
+            height: 100vh;
+            margin: auto;
+            padding: auto;
+            display: flex;
+            
+            flex-direction: column;
+        }
+        h5, h1, p{
+            font-weight: bold;
+            margin: 5px;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            align-content: space-between;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            border: black solid 2px;
+            position: sticky;
+            width: 100%;
+            padding: auto;
+            background: linear-gradient( rgb(103, 237, 190), rgb(80, 183, 255));;
+        }
+        .column, .data-row{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid green;
+        }
+        .product{
+            width: 60%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Toko Jam Bobert</h1>
+        <h5>NPM: </h5>
+        <p>2306214990</p> <!-- Ubah sesuai dengan npm kamu -->
+        <h5>Name: </h5>
+        <p>Henry Aditya Kosasi</p>       
+        <h5>Class: </h5>
+        <p>PBP F</p>
+    </header>
+    <br><br><br><br>
+    <div class = "product">
+        <!--Akan saya ubah jadi grid saja sepertinya nanti
+            Untuk sekarang belum terlalu paham grid-->
+        <div class="column">
+            <h5>Name</h5>
+            <h5>Price</h5>
+            <h5>Description</h5>
+        </div>
+        <div class="data-row">
+            <p>{{ name }}<p>
+            <p>{{ price }}<p>
+            <p>{{ description }}<p>
+        </div>
+    </div>
+</body>
+</html>
