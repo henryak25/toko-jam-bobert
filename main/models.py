@@ -2,8 +2,7 @@ from django.db import models
 from django.db import models
 
 class Product(models.Model):
-    nama_barang = models.CharField(max_length=255)
-    nama_mahasiswa = models.TextField()
+    name = models.CharField(max_length=255)
     time = models.DateField(auto_now_add=True)
     description = models.TextField()
     price = models.IntegerField()
