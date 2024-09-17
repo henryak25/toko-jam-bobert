@@ -53,7 +53,7 @@
         }
         button{
             border-radius: 5px;
-            background-color: yellow;
+            background-color: limegreen;
         }
         tr{
             margin: 3.5px;
@@ -94,7 +94,7 @@
             <p>{{ description }}<p>
         </div>
         {% if not product_entries %}
-        <p>Belum ada data product pada mental health tracker.</p>
+        <p>Belum ada data produk pada toko jam bobert.</p>
         {% else %}
         <table class="data-row">
         <tr>
@@ -103,9 +103,6 @@
             <th>Harga</th>
             <th>Description</th>
         </tr>
-    
-        {% comment %} Berikut cara memperlihatkan data mood di bawah baris ini 
-        {% endcomment %} 
         {% for product_entry in product_entries %}
         <tr>
             <td>{{product_entry.name}}</td>
