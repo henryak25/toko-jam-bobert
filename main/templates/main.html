@@ -1,8 +1,12 @@
+
+{% extends 'base.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}
     <title>Document</title>
     <style>
         body{
@@ -47,9 +51,25 @@
             flex-direction: column;
             justify-content: space-between;
         }
+        button{
+            border-radius: 5px;
+            background-color: yellow;
+        }
+        tr{
+            margin: 3.5px;
+            padding: 5px;
+            border: 2px solid black;
+        } 
+        td{
+            margin: 3.5px;
+            padding: 5px;
+            border: 2px solid black;
+        }
     </style>
+    {% endblock meta %}
 </head>
 <body>
+    {% block content %}
     <header>
         <h1>Toko Jam Bobert</h1>
         <h5>NPM: </h5>
@@ -73,6 +93,36 @@
             <p>{{ price }}<p>
             <p>{{ description }}<p>
         </div>
+        {% if not product_entries %}
+        <p>Belum ada data product pada mental health tracker.</p>
+        {% else %}
+        <table class="data-row">
+        <tr>
+            <th>Nama Product</th>
+            <th>Waktu</th>
+            <th>Harga</th>
+            <th>Description</th>
+        </tr>
+    
+        {% comment %} Berikut cara memperlihatkan data mood di bawah baris ini 
+        {% endcomment %} 
+        {% for product_entry in product_entries %}
+        <tr>
+            <td>{{product_entry.name}}</td>
+            <td>{{product_entry.time}}</td>
+            <td>{{product_entry.price}}</td>
+            <td>{{product_entry.description}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+        {% endif %}
+    
+        <br />
+    
+        <a href="{% url 'main:create_product_entry' %}">
+        <button>Add New Product Entry</button>
+        </a>
     </div>
+    {% endblock content %}
 </body>
 </html>

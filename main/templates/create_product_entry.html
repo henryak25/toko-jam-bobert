@@ -1,0 +1,51 @@
+{% extends 'base.html' %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% block meta %}
+    <title>Document</title>
+	<style>
+		body{
+			background: linear-gradient( rgb(203, 241, 228), rgb(82, 141, 184));
+            font-family: Helvetica;
+            text-align: center;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+            justify-content: center;
+            align-items: center;
+		}
+		.container{
+			border: 3px solid green;
+			border-radius: 7px;
+			
+		}
+		table{
+			margin: 20px;
+		}
+	</style>
+	{% endblock meta %}
+</head>
+<body>
+	{% block content %}
+	<div class="container">
+		<h1>Add New Product Entry</h1>
+		<form method="POST">
+		{% csrf_token %}
+		<table>
+			{{ form.as_table }}
+			<tr>
+			<td></td>
+			<td>
+				<input type="submit" value="Add Product Entry" />
+			</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+	{% endblock %}
+</body>
+</html>
