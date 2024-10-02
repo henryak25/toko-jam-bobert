@@ -1,51 +1,48 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+<title>Create Mood</title>
+{% endblock meta %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{% block meta %}
-    <title>Document</title>
-	<style>
-		body{
-			background: linear-gradient( rgb(203, 241, 228), rgb(82, 141, 184));
-            font-family: Helvetica;
-            text-align: center;
-			height: 100vh;
-			display: flex;
-			flex-direction: column;
-            justify-content: center;
-            align-items: center;
-		}
-		.container{
-			border: 3px solid green;
-			border-radius: 7px;
-			
-		}
-		table{
-			margin: 20px;
-		}
-	</style>
-	{% endblock meta %}
-</head>
-<body>
-	{% block content %}
-	<div class="container">
-		<h1>Add New Product Entry</h1>
-		<form method="POST">
-		{% csrf_token %}
-		<table>
-			{{ form.as_table }}
-			<tr>
-			<td></td>
-			<td>
-				<input type="submit" value="Add Product Entry" />
-			</td>
-			</tr>
-		</table>
-		</form>
-	</div>
-	{% endblock %}
-</body>
-</html>
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="flex flex-col min-h-screen bg-gray-900">
+  <div class="container mx-auto px-4 py-8 mt-16 max-w-xl">
+    <h1 class="text-3xl font-bold text-center mb-8 text-white animate-pulse" style="font-family: 'Permanent Marker', cursive;">
+      Create Product Entry
+    </h1>
+
+    <div class="bg-gray-800 shadow-md rounded-lg p-6 form-style">
+      <form method="POST" class="space-y-6">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="flex flex-col">
+            <label for="{{ field.id_for_label }}" class="mb-2 font-semibold text-gray-300" style="font-family: 'Permanent Marker', cursive;">
+              {{ field.label }}
+            </label>
+            <div class="w-full">
+              {{ field }}
+            </div>
+            {% if field.help_text %}
+              <p class="mt-1 text-sm text-gray-400">{{ field.help_text }}</p>
+            {% endif %}
+            {% for error in field.errors %}
+              <p class="mt-1 text-sm text-red-400">{{ error }}</p>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <div class="flex justify-center mt-6">
+          <button type="submit" class="bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-300 ease-in-out w-full" style="font-family: 'Permanent Marker', cursive;">
+            Create Product Entry
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Tambahkan link font Permanent Marker dari Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+{% endblock %}

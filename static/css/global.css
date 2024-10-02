@@ -1,0 +1,49 @@
+.form-style form input, form textarea, form select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #bcbcbc;
+    border-radius: 0.375rem;
+}
+.form-style form input:focus, form textarea:focus, form select:focus {
+    outline: none;
+    border-color: #674ea7;
+    box-shadow: 0 0 0 3px #674ea7;
+}
+
+
+@keyframes shine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+.animate-shine {
+    background: linear-gradient(120deg, rgba(3, 3, 3, 0.3), rgb(0, 0, 0) 50%, rgb(0, 0, 0));
+    background-size: 200% 100%;
+    animation: shine 3s infinite;
+}
+.animate-shake {
+    position: relative;
+    top: 1.25rem; /* 5 dari unit yang sesuai, bisa disesuaikan */ /* pink-100 */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.1); /* shadow-lg */
+    border-radius: 1.5rem; /* rounded-3xl */
+    margin-bottom: 1.5rem; /* mb-6 */
+    display: flex;
+    
+    flex-direction: column; /* flex-col */
+     /* pink-300 */
+    transition: animate 10s ease-in-out;
+    transform: rotate(2deg); /* Tambahkan transisi */
+}
+
+@keyframes shaking {
+    0% {
+        transform: rotate(2deg); /* Rotate slightly to the right */
+    }
+    
+    100% {
+        transform: rotate(-2deg); /* Rotate back to original */
+    }
+}
+
+.animate-shake:hover {
+    animation: shaking 1s infinite alternate; /* Mengubah durasi animasi */
+}
