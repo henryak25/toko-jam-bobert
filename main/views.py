@@ -72,6 +72,7 @@ def login_user(request):
         form = AuthenticationForm(data=request.POST)
 
         if form.is_valid():
+            # test
             user = form.get_user()
             login(request, user)
             response = HttpResponseRedirect(reverse("main:show_main"))
